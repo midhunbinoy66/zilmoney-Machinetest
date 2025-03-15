@@ -1,0 +1,24 @@
+<!--Table goes here -->
+<div class="container">
+    <div class="mt-5">
+        <table class="table">
+            <thead class="bg-light ">
+                <th class="p-4">Name</th>
+                <th class="p-4">Company Name</th>
+                <th class="p-4">Designation</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="search" class="form-control" [(ngModel)]="name"></td>
+                    <td><input type="text" placeholder="search" class="form-control" [(ngModel)]="company"></td>
+                    <td><input type="text" placeholder="search" class="form-control" [(ngModel)]="designation"></td>
+                </tr>
+                <tr *ngFor="let item of userData | find:'name':name | find:'company':company | find:'designation':designation">
+                    <td [ngClass]="{'angular':item.company.designation==='angular Developer'}">{{item.name}} <br>{{item.email}} </td>
+                    <td [ngClass]="{'angular':item.company.designation==='angular Developer'}">{{item.company.name}}</td>
+                    <td [ngClass]="{'angular':item.company.designation==='angular Developer'}">{{item.company.designation}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
